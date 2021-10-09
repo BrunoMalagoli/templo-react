@@ -1,0 +1,35 @@
+
+.navBar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 80%;
+    position: relative;
+    top: 2rem;
+    left: 10%;
+    background-color: rgb(129,234,159);;
+    #navBarLogoContainer{
+        display: flex;
+        width: 15%;
+        height: 100%;
+        padding: 1%;
+        background-color: rgb(79,31,70);
+        border-radius: 15rem;
+    #navBarLogo{
+        height: 100%;
+        width: auto;
+    }
+}
+    .navBarUl{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 30%;
+        .navBarLi{
+            list-style: none;
+            width:25%;
+            color: rgb(79,31,70);
+        }
+    }    
+}
