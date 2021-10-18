@@ -1,7 +1,11 @@
 import React from "react";
+import './styles/ItemListContainer.scss'
+import ItemCount from "./ItemCount";
  const ItemListContainer=()=>{
      return(
-        <p>Hola soy un texto provisional</p>
+        <>
+        <ItemCount  stock='5' initial='1' />
+        </>
      )
  }
  export default ItemListContainer
