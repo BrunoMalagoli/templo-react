@@ -12,6 +12,20 @@
     font-size: 1.3rem;
     text-align: center;
     }
+    #counterAdd{
+        background-color: rgb(129,234,159);
+        color: white;
+        font-size: 1rem;
+        border: 1px solid black;
+        position: relative;
+        top: 1rem;
+        left: 27%;
+    }
+    #counterAdd:hover{
+        background-color:rgb(93, 192, 121);
+        cursor: pointer;
+        position: relative;
+    }
 #buttonsContainer{
     display: flex;
     justify-content: center;

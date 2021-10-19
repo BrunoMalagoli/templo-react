@@ -16,11 +16,12 @@ const ItemCount = ({initial,stock}) =>{
         <>
         <div id='counterContainer'>
             <p id='counterTitle'>Jack Daniels</p>
-            <div id='buttonsContainer'>
+                <div id='buttonsContainer'>
             <button className='counterButtons' onClick={onDecrease}>-</button>
-            <span id='counterItems'>{items}</span>
+                <span id='counterItems'>{items}</span>
             <button className='counterButtons' onClick={onAdd}>+</button>
-            </div>
+                </div>
+                <button id='counterAdd'>Agregar al carrito</button>
         </div>
         </>
     )
