@@ -1,7 +1,7 @@
 import React from "react";
-import './styles/NavBarSass.scss'
-import logoTemplo from "../images/eltemploLogo.png"
-import CartWidget from "./CartWidget";
+import '../NavBar/NavBar.scss'
+import logoTemplo from "../../images/eltemploLogo.png"
+import CartWidget from "../CartWidget/CartWidget";
 
 const NavBar =()=>{
     return(   

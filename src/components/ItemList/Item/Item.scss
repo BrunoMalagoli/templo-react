@@ -1,0 +1,20 @@
+*{
+    font-family: 'Scheherazade New', serif;
+}
+
+.itemContainer{
+    background-color:rgb(171, 241, 191) ;
+    width: 100%;
+    .itemCard{
+        .itemImg{
+        width: auto;
+        height: auto;
+        }
+        .itemName{
+        text-align: center;
+        }
+        .itemPrice{
+            text-align: center;
+        }
+    }
+}

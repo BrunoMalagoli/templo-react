@@ -1,0 +1,31 @@
+[
+    {
+    "id": "1",
+    "photo": "../../images/red.png",
+    "name": "JW Red Label",
+    "price":"1600",
+    "stock":"15"
+    },
+    {
+    "id": "2",
+    "photo": "./images/gancia.png",
+    "name": "Gancia",
+    "price":"400",
+    "stock":"12"
+    },
+    {
+    "id": "3",
+    "photo": "./images/jack.png",
+    "name": "Jack Daniel's N7",
+    "price":"3800",
+    "stock":"7"
+    },
+    {
+    "id": "",    
+    "photo": "./images/fernet.png",
+    "name": "Fernet Branca",
+    "price":"550",
+    "stock":"10"
+    }
+
+]
