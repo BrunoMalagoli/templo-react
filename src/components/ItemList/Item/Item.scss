@@ -3,13 +3,16 @@
 }
 
 .itemContainer{
-    background-color:rgb(171, 241, 191) ;
     width: 20%;
-    height: 18rem;
+    height: 100%;
     .itemCard{
-        .itemImg{
-        width: auto;
         height: 100%;
+        background-color:rgb(171, 241, 191) ;
+        .itemImg{
+        height: 250px;
+        width: 250px;
+        position: relative;
+        left: 9.5%;
         }
         .itemName{
         text-align: center;

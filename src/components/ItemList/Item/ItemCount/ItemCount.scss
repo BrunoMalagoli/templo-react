@@ -10,7 +10,10 @@
         border: 1px solid black;
         position: relative;
         top: 1rem;
-        left: 27%;
+        left: 22.5%;
+        padding-left: 10%;
+        padding-right: 10%;
+        
     }
     #counterAdd:hover{
         background-color:rgb(93, 192, 121);
@@ -21,6 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 0.5rem;
 .counterButtons{
     background-color: white;
     cursor: pointer;

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import '../ItemListContainer/ItemListContainer.scss'
 import ItemList from "../ItemList/ItemList";
-import Products from "../Products.json"
+import Products from "../Products"
  const ItemListContainer=({items})=>{
-    // eslint-disable-next-line no-unused-vars
     const [productos,setProductos]= useState([]);
     
     const getProducts=(productos)=>
@@ -24,7 +23,7 @@ import Products from "../Products.json"
      return(
         <>
         <div className='itemListContainer'>
-        <ItemList productos={Products}/>
+        <ItemList productos={productos}/>
         </div>
         </>
      )

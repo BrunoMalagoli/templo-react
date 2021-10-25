@@ -11,14 +11,15 @@
     align-items: center;
     #navBarLogoContainer{
         display: flex;
-        width: 15%;
+        width: 12%;
         height: 100%;
         padding: 1%;
         background-color: rgb(79,31,70);
         border-radius: 15rem;
         justify-content: center;
         position: relative;
-        left: 2%;
+        left: 4%;
+        margin-bottom: 0.3rem;
     #navBarLogo{
         height: 100%;
         width: auto;
@@ -32,7 +33,7 @@
         width: 50%;
         text-align: center;
         padding: 0%;
-        left: -3rem;
+        left: -2rem;
         .navBarLi{
             list-style: none;
             width:20%;
