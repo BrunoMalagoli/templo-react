@@ -15,7 +15,6 @@ const ItemCount = ({initial,stock}) =>{
     return(
         <>
         <div id='counterContainer'>
-            <p id='counterTitle'>Jack Daniels</p>
                 <div id='buttonsContainer'>
             <button className='counterButtons' onClick={onDecrease}>-</button>
                 <span id='counterItems'>{items}</span>

@@ -25,13 +25,17 @@
     }
 }
     .navBarUl{
+        position: relative;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 30%;
+        width: 50%;
+        text-align: center;
+        padding: 0%;
+        left: -3rem;
         .navBarLi{
             list-style: none;
-            width:25%;
+            width:20%;
             color: rgb(79,31,70);
             font-size: 1.4rem;
             font-weight: 500;

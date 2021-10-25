@@ -4,11 +4,12 @@
 
 .itemContainer{
     background-color:rgb(171, 241, 191) ;
-    width: 100%;
+    width: 20%;
+    height: 18rem;
     .itemCard{
         .itemImg{
         width: auto;
-        height: auto;
+        height: 100%;
         }
         .itemName{
         text-align: center;
