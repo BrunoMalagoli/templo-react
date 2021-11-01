@@ -28,7 +28,7 @@ const Products=[
     "description":"Whiskey Jack Daniel's es una reconocida marca de whiskey de origen estadounidense. Se trata de un whiskey Tennesse, y este tipo de destilado se diferencia en que su elaboración se filtra a través de carbon de madera de arce."
     },
     {
-    "id": "",    
+    "id": "4",    
     "photo": fernet,
     "name": "Fernet Branca",
     "price":"550",

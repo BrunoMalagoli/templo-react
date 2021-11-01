@@ -19,13 +19,17 @@ const ItemDetailContainer = ({ items }) => {
     });
   useEffect(() => {
     getItem(Products)
-      .then((res) => setItem(res))
+      .then((res) => {
+        itemId
+          ? setItem(res.filter((item) => item.id === parseInt(itemId)))
+          : setItem(Products);
+      })
       .catch((err) => console.log(err));
-  });
+  }, [itemId]);
 
   return (
     <>
-      <ItemDetail items={item} key={item.id} />
+      <ItemDetail items={item[0]} key={item.id} />
     </>
   );
 };
