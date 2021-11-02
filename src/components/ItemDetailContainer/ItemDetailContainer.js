@@ -21,7 +21,7 @@ const ItemDetailContainer = ({ items }) => {
     getItem(Products)
       .then((res) => {
         itemId
-          ? setItem(res.filter((item) => item.id === parseInt(itemId)))
+          ? setItem(res.filter((item) => item.id === itemId))
           : setItem(Products);
       })
       .catch((err) => console.log(err));
