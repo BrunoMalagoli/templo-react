@@ -1,7 +1,9 @@
-.itemListContainer{
+.itemListContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 80%;
+  position: relative;
+  top: 8rem;
 }

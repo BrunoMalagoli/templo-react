@@ -1,43 +1,48 @@
-*{
-    font-family: 'Scheherazade New', serif;
+* {
+  font-family: "Scheherazade New", serif;
 }
-#counterContainer{
-    height: 8rem;
-    #counterAdd{
-        background-color: rgb(129,234,159);
-        color: white;
-        font-size: 1rem;
-        border: 1px solid black;
-        position: relative;
-        top: 1rem;
-        left: 22.5%;
-        padding-left: 10%;
-        padding-right: 10%;
-        
-    }
-    #counterAdd:hover{
-        background-color:rgb(93, 192, 121);
-        cursor: pointer;
-        position: relative;
-    }
-#buttonsContainer{
+#counterContainer {
+  height: 8rem;
+  #counterAdd {
+    background-color: rgb(252, 163, 17);
+    color: white;
+    font-size: 1rem;
+    border: 1px solid black;
+    position: relative;
+    top: 1rem;
+    left: 20%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #counterAdd:hover {
+    background-color: rgb(230, 143, 3);
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s ease-in;
+  }
+  #buttonsContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-.counterButtons{
-    background-color: white;
-    cursor: pointer;
-    border: 1px solid rgb(129,234,159) ;
-    color: rgb(129,234,159);
-    font-size: 1.4rem;
-    border-radius: 10px;
-    width: 10%;
-}
-#counterItems{
-    font-size: 1.4rem;
-    width: 2rem;
-    text-align: center;
-}
-}
+    .counterButtons {
+      background-color: white;
+      cursor: pointer;
+      border: 1px solid rgb(252, 163, 17);
+      color: rgb(252, 163, 17);
+      font-size: 1.4rem;
+      border-radius: 10px;
+      width: 10%;
+    }
+    .counterButtons:hover {
+      background-color: rgb(230, 143, 3);
+      color: white;
+      transition: 0.3s ease-in;
+    }
+    #counterItems {
+      font-size: 1.4rem;
+      width: 2rem;
+      text-align: center;
+    }
+  }
 }

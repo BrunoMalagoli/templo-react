@@ -1,24 +1,38 @@
-*{
-    font-family: 'Scheherazade New', serif;
+* {
+  font-family: "Scheherazade New", serif;
 }
 
-.itemContainer{
-    width: 20%;
+.itemContainer {
+  width: 20%;
+  height: 100%;
+  margin-top: 0.5%;
+  .itemCard {
     height: 100%;
-    .itemCard{
-        height: 100%;
-        background-color:rgb(171, 241, 191) ;
-        .itemImg{
-        height: 250px;
-        width: 250px;
-        position: relative;
-        left: 9.5%;
-        }
-        .itemName{
-        text-align: center;
-        }
-        .itemPrice{
-            text-align: center;
-        }
+    background-color: rgb(250, 250, 250);
+    box-shadow: 4px 4px 10px 0px rgba(252, 163, 17, 0.42);
+    -webkit-box-shadow: 4px 4px 10px 0px rgb(228, 228, 228);
+    -moz-box-shadow: 4px 4px 10px 0px rgb(228, 228, 228);
+    .itemImg {
+      height: 250px;
+      width: 250px;
+      position: relative;
+      left: 4%;
     }
+    .itemName {
+      text-align: center;
+    }
+    .itemPrice {
+      text-align: center;
+      border-bottom: 1px solid rgb(252, 163, 17);
+      border-top: 1px solid rgb(252, 163, 17);
+      color: rgb(20, 33, 61);
+      font-size: large;
+    }
+    .itemDescriptionAnchor {
+      position: relative;
+      left: 28.4%;
+      text-decoration-color: rgb(252, 163, 17);
+      color: rgb(20, 33, 61);
+    }
+  }
 }

@@ -22,12 +22,13 @@ const ItemDetailContainer = ({ items }) => {
       .then((res) => {
         itemId
           ? setItem(res.filter((item) => item.id === itemId))
-          : setItem(Products);
+          : setItem(Products); //Si itemId tiene un valor filtra el array Products y busca la coincidencia de ids sino muestra el array entero
       })
       .catch((err) => console.log(err));
-  }, [itemId]);
+  }, [itemId]); //Cuando cambia la variable se ejecuta el useEffect
 
   return (
+    //item[0] porque busco el primer y unico item filtrado del nuevo array filter
     <>
       <ItemDetail items={item[0]} key={item.id} />
     </>

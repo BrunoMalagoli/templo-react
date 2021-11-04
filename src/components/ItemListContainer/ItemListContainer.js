@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import '../ItemListContainer/ItemListContainer.scss'
 import ItemList from "../ItemList/ItemList";
 import Products from "../Products"
+import { useParams } from "react-router";
  const ItemListContainer=({items})=>{
     const [productos,setProductos]= useState([]);
-    
+    const {categoryId} = useParams();
     const getProducts=(productos)=>
         new Promise((resolve,reject)=>{
            setTimeout(()=>{
@@ -17,9 +18,13 @@ import Products from "../Products"
         })
     useEffect(()=>{
         getProducts(Products)
-        .then((res)=>setProductos(res))
+        .then((res)=>{
+            categoryId
+        ?setProductos(res.filter((item)=>item.category===categoryId))
+        :setProductos(Products)
+        })    
         .catch((err)=>console.log(err))
-    });
+    },[categoryId]);
      return(
         <>
         <div className='itemListContainer'>
