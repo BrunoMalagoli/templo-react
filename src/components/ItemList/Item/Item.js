@@ -10,7 +10,7 @@ const Item = ({items}) =>{
         <img className='itemImg' src={items.photo} alt="Bottle of alcohol" />
         <h3 className='itemName'>{items.name}</h3>
         <p className='itemPrice'>${items.price}</p>
-        <ItemCount stock={items.stock} initial='1' />
+        <ItemCount stock={items.stock} initial='0' />
         <NavLink to={`/item/${items.id}`} className="itemDescriptionAnchor"><span className="itemDescription">Detalle del producto</span></NavLink>
         </div>
     </div>
