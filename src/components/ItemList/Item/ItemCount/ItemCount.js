@@ -1,29 +1,26 @@
 import React, { useState } from "react";
 import '../ItemCount/ItemCount.scss'
 import Swal from 'sweetalert2'
-const ItemCount = ({initial,stock,quantityToAdd,quantity}) =>{
+const ItemCount = ({initial,stock,onCart,setItemsOnCart,showCounter}) =>{
     const [ items , setItems]= useState(0);
-    quantity=items;
     const onAdd =()=>{
         if (stock > items){
         setItems(items+1)
-        quantityToAdd=(quantity)=>{
-        return quantity+1
         }
         }
-    }
     const onDecrease=()=>{
         if(initial<items){
         setItems(items-1)
-        quantityToAdd=(quantity)=>{
-            return quantity-1
             }
         }
-    }
-    const onCart=()=>{
+    onCart=(quantityToAdd)=>{
+        console.log(quantityToAdd)
+        setItemsOnCart=(quantityToAdd)=>quantityToAdd;
+        showCounter=()=>false;
+        console.log(showCounter)
         if(items>=1){
             Swal.fire({
-                title: 'Agregado a tu carrito!',
+                title: `Agregaste ${items} items a tu carrito!`,
                 toast: true,
                 showConfirmButton: false,
                 timerProgressBar:true,
@@ -44,10 +41,10 @@ const ItemCount = ({initial,stock,quantityToAdd,quantity}) =>{
         <div id='counterContainer'>
                 <div id='buttonsContainer'>
             <button className='counterButtons' onClick={onDecrease}>-</button>
-                <span id='counterItems'>{quantity}</span>
+                <span id='counterItems'>{items}</span>
             <button className='counterButtons' onClick={onAdd}>+</button>
                 </div>
-                <button id='counterAdd' onClick={onCart}>Agregar al carrito</button>
+                <button id='counterAdd' onClick={()=>onCart(items)}>Agregar al carrito</button>
         </div>
         </>
     )

@@ -1,10 +1,16 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import ItemCount from "../../ItemList/Item/ItemCount/ItemCount";
+import Loader from "../../Loader/Loader";
 import "../ItemDetail/ItemDetail.scss";
 const ItemDetail = ({ items }) => {
   const [quantity, setQuantity] = useState();
+  const [showCounter, setShowCounter] = useState(true);
   const onAdd = (quantityToAdd) => {
     setQuantity(quantityToAdd);
+    setShowCounter(!showCounter);
+    console.log(showCounter);
+    console.log(quantity);
   };
   return (
     <>
@@ -20,16 +26,27 @@ const ItemDetail = ({ items }) => {
             <h4 className="itemDetailPrice">{items.price}</h4>
             <p className="itemDetailDescription">{items.description}</p>
             <div className="itemDetailCounterWrapper">
-              <ItemCount
-                stock={items.stock}
-                initial={"0"}
-                quantityToAdd={onAdd}
-                quantity={quantity}
-              />
+              {showCounter ? (
+                <ItemCount
+                  stock={items.stock}
+                  initial={"0"}
+                  onCart={(items) => onAdd(items)}
+                  setItemsOnCart={() => setQuantity}
+                  showCounter={showCounter}
+                />
+              ) : (
+                <Link to={`/cart`}>
+                  <>
+                    <button>Ver carrito ({quantity} items agregados)</button>
+                  </>
+                </Link>
+              )}
             </div>
           </div>
         ) : (
-          "Loading..."
+          <div className="loaderContainer">
+            <Loader />
+          </div>
         )}
       </div>
     </>
