@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ItemCount from "../../ItemList/Item/ItemCount/ItemCount";
 import Loader from "../../Loader/Loader";
 import "../ItemDetail/ItemDetail.scss";
+import Swal from "sweetalert2";
 const ItemDetail = ({ items }) => {
   const [quantity, setQuantity] = useState();
   const [showCounter, setShowCounter] = useState(true);
@@ -11,6 +12,25 @@ const ItemDetail = ({ items }) => {
     setShowCounter(!showCounter);
     console.log(showCounter);
     console.log(quantity);
+  };
+  let showAlert = (quantity) => {
+    if (quantity >= 1) {
+      Swal.fire({
+        title: `Agregaste ${quantity} items a tu carrito!`,
+        toast: true,
+        showConfirmButton: false,
+        timerProgressBar: true,
+        timer: 1500,
+        position: "bottom-end",
+        background: "rgb(255, 221, 84)",
+        icon: "success",
+      });
+    } else {
+      Swal.fire({
+        text: "Agrega productos a tu carrito!",
+        icon: "error",
+      });
+    }
   };
   return (
     <>
@@ -35,11 +55,16 @@ const ItemDetail = ({ items }) => {
                   showCounter={showCounter}
                 />
               ) : (
-                <Link to={`/cart`}>
-                  <>
-                    <button>Ver carrito ({quantity} items agregados)</button>
-                  </>
-                </Link>
+                (showAlert(quantity),
+                (
+                  <Link to={`/cart`}>
+                    <>
+                      <button className="toCartButton">
+                        Ver carrito ({quantity} items agregados)
+                      </button>
+                    </>
+                  </Link>
+                ))
               )}
             </div>
           </div>

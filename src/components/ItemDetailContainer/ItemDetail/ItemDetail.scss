@@ -1,6 +1,23 @@
 #itemDetailContainer {
   position: relative;
   top: 8rem;
+  .toCartButton {
+    background-color: rgb(252, 163, 17);
+    color: white;
+    font-size: 1rem;
+    border: 1px solid black;
+    position: relative;
+    top: 1rem;
+    left: 20%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .toCartButton:hover {
+    background-color: rgb(230, 143, 3);
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s ease-in;
+  }
 }
 .loaderContainer {
   position: absolute;
