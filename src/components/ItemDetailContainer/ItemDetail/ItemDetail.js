@@ -4,14 +4,15 @@ import ItemCount from "../../ItemList/Item/ItemCount/ItemCount";
 import Loader from "../../Loader/Loader";
 import "../ItemDetail/ItemDetail.scss";
 import Swal from "sweetalert2";
+import { useCart } from "../../../contexts/CartContext";
 const ItemDetail = ({ items }) => {
   const [quantity, setQuantity] = useState();
   const [showCounter, setShowCounter] = useState(true);
-  const onAdd = (quantityToAdd) => {
+  const { addItem } = useCart();
+  const onAdd = (items, quantityToAdd) => {
+    addItem({ items, quantityToAdd });
     setQuantity(quantityToAdd);
     setShowCounter(!showCounter);
-    console.log(showCounter);
-    console.log(quantity);
   };
   let showAlert = (quantity) => {
     if (quantity >= 1) {
@@ -56,6 +57,8 @@ const ItemDetail = ({ items }) => {
                 />
               ) : (
                 (showAlert(quantity),
+                console.log(showCounter),
+                console.log(quantity),
                 (
                   <Link to={`/cart`}>
                     <>

@@ -3,9 +3,12 @@ import '../Item/Item.scss';
 import ItemCount from "./ItemCount/ItemCount"
 import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useCart } from "../../../contexts/CartContext";
 const Item = ({items}) =>{
+  const { addItem }=useCart();
     const onAdd=(quantity)=>{
         if (quantity >= 1) {
+          addItem({items, quantity});
             Swal.fire({
               title: `Agregaste ${quantity} items a tu carrito!`,
               toast: true,
