@@ -8,7 +8,7 @@ const Item = ({items}) =>{
   const { addItem }=useCart();
     const onAdd=(quantity)=>{
         if (quantity >= 1) {
-          addItem({items, quantity});
+          addItem(items, quantity);
             Swal.fire({
               title: `Agregaste ${quantity} items a tu carrito!`,
               toast: true,

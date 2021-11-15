@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React,  { useContext, useState } from "react";
+import React,  {useContext, useState } from "react";
 const CartContext=React.createContext();
 
 export function useCart(){
@@ -13,16 +12,19 @@ export function CartProvider({children}){
         const newItem={...item, addedItems:quantity};//Trae todo el objeto item y le agrega una propiedad addedItems que es el contador por si esta repetido
         const isInCart=cart.some((newProd)=>newProd.id===item.id);//Funcion para saber si el item ya esta en el Cart
         if(!isInCart){
-            setCart(...cart,newItem);
+            setCart([...cart,newItem]);
+            console.log(newItem)
+            console.log(cart)
         }else{
-            const duplicatedItem=cart.find(newProd=>newProd.id===item.id);
-            duplicatedItem.addedItems=duplicatedItem.addedItems+quantity;
+            let duplicatedItem=cart.find(newProd=>newProd.id===item.id);
+            duplicatedItem={duplicatedItem,addedItems:quantity}
+            setCart([...cart,duplicatedItem])
+            console.log(duplicatedItem)
             console.log(cart)
         }
-        console.log(cart)
         return;
     }
-    const removeItem=(itemId,{item})=>{
+    const removeItem=(itemId,item)=>{
         cart.splice(itemId===item.id);
     }
     const clearItems=()=>{

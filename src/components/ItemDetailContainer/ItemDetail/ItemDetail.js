@@ -9,8 +9,8 @@ const ItemDetail = ({ items }) => {
   const [quantity, setQuantity] = useState();
   const [showCounter, setShowCounter] = useState(true);
   const { addItem } = useCart();
-  const onAdd = (items, quantityToAdd) => {
-    addItem({ items, quantityToAdd });
+  const onAdd = (quantityToAdd) => {
+    addItem(items, quantityToAdd);
     setQuantity(quantityToAdd);
     setShowCounter(!showCounter);
   };
