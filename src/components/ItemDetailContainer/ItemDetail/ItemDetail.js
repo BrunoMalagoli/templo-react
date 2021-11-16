@@ -8,11 +8,12 @@ import { useCart } from "../../../contexts/CartContext";
 const ItemDetail = ({ items }) => {
   const [quantity, setQuantity] = useState();
   const [showCounter, setShowCounter] = useState(true);
-  const { addItem } = useCart();
+  const { addItem, setCartCounter, cartCounter } = useCart();
   const onAdd = (quantityToAdd) => {
     addItem(items, quantityToAdd);
     setQuantity(quantityToAdd);
     setShowCounter(!showCounter);
+    setCartCounter(cartCounter + quantityToAdd);
   };
   let showAlert = (quantity) => {
     if (quantity >= 1) {
@@ -63,7 +64,7 @@ const ItemDetail = ({ items }) => {
                   <Link to={`/cart`}>
                     <>
                       <button className="toCartButton">
-                        Ver carrito ({quantity} items agregados)
+                        Ver carrito ({cartCounter} items agregados)
                       </button>
                     </>
                   </Link>

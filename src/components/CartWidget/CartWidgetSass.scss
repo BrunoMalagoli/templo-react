@@ -1,11 +1,26 @@
-.cartWidgetContainer{
-    height: auto;
-    width: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    #cartWidget{
-        height: 60%;
-        width: 35%;
-    }
+.cartWidgetContainer {
+  position: inherit;
+  left: 90%;
+  height: auto;
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  #cartWidget {
+    height: 70%;
+    width: 45%;
+    position: relative;
+    top: 0.3rem;
+  }
+  #cartCounter {
+    position: relative;
+    right: 40%;
+    font-size: 1.4rem;
+    color: rgb(20, 33, 61);
+    font-weight: bolder;
+    padding-left: 8%;
+    padding-right: 8%;
+    background-color: rgb(230, 143, 3);
+    border-radius: 1000%;
+  }
 }

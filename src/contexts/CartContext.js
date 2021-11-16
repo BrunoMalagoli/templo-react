@@ -7,6 +7,7 @@ export function useCart(){
 
 export function CartProvider({children}){
     const [cart,setCart]=useState([]);
+    const [cartCounter,setCartCounter]=useState(0);
     //Funcion para agregar items al carro si no estan repetidos, si estan repetidos agrega mas cantidad a su contador
     const addItem=(item,quantity)=>{
         const newItem={...item, addedItems:quantity};//Trae todo el objeto item y le agrega una propiedad addedItems que es el contador por si esta repetido
@@ -14,7 +15,6 @@ export function CartProvider({children}){
         if(!isInCart){
             setCart([...cart,newItem]);
             console.log(newItem)
-            console.log(cart)
         }else{
             let duplicatedItem=cart.find(newProd=>newProd.id===item.id);
             duplicatedItem={duplicatedItem,addedItems:quantity}
@@ -22,10 +22,10 @@ export function CartProvider({children}){
             console.log(duplicatedItem)
             console.log(cart)
         }
-        return;
+        return ;
     }
     const removeItem=(itemId,item)=>{
-        cart.splice(itemId===item.id);
+        setCart(cart.splice(itemId===item.id));
     }
     const clearItems=()=>{
         setCart([])
@@ -33,7 +33,7 @@ export function CartProvider({children}){
 
     return(
         <>
-        <CartContext.Provider value={{cart, addItem, removeItem, clearItems}}>
+        <CartContext.Provider value={{cart,setCart, addItem, removeItem, clearItems,cartCounter,setCartCounter}}>
             {children}
         </CartContext.Provider>
         </>

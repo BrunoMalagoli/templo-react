@@ -3,7 +3,9 @@ import '../NavBar/NavBar.scss'
 import logoTemplo from "../../images/eltemploLogo.png"
 import CartWidget from "../CartWidget/CartWidget";
 import {Link, NavLink} from "react-router-dom"
+import { useCart } from "../../contexts/CartContext";
 const NavBar =()=>{
+  const {cart}=useCart();
     return(   
     <nav className="navBar">
         <div id="navBarLogoContainer">
@@ -20,7 +22,11 @@ const NavBar =()=>{
       </ul>
       <li id="navBarContacto" className="navBarLi">Contacto</li>  
     </ul>
-    <CartWidget/>
+
+      {cart.length>=1
+      ?<CartWidget/>
+      :null}
+    
      </nav>    
     )
 }
