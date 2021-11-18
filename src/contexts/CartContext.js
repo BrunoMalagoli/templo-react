@@ -18,17 +18,28 @@ export function CartProvider({children}){
         }else{
             let duplicatedItem=cart.find(newProd=>newProd.id===item.id);
             duplicatedItem={duplicatedItem,addedItems:quantity}
-            setCart([...cart,duplicatedItem])
             console.log(duplicatedItem)
+            cart.forEach(({duplicatedItem}) => {
+               duplicatedItem.addedItems++
+            });
             console.log(cart)
         }
         return ;
     }
-    const removeItem=(itemId,item)=>{
-        setCart(cart.splice(itemId===item.id));
+    const removeItem=(itemId)=>{
+        const itemFiltered=cart.filter(item => item.id === itemId);
+        itemFiltered.forEach(item => {
+            item.addedItems--
+        });
+        setCart([...cart,itemFiltered])
+        console.log(cart)
+        if (cartCounter>0) {
+            setCartCounter(cartCounter-1)
+        }
     }
     const clearItems=()=>{
         setCart([])
+        setCartCounter(0)
     }
 
     return(

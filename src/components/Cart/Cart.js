@@ -2,27 +2,9 @@ import { Link } from "@material-ui/core";
 import React from "react";
 import { useCart } from "../../contexts/CartContext";
 import "../Cart/Cart.scss"
+import CartItems from "./CartItems/CartItems";
 const Cart=()=>{
-    const {addItem,cart,removeItem,clearItems}=useCart();
-    const CartItems=({items})=>{
-        return(
-            <div className="cartItemsWrapper">
-                <img src={items.photo} alt="Botella de bebida alcoholica"/>
-                <h3>
-                    {items.name}
-                </h3>
-                <span>
-                Cantidad:{items.addedItems}
-                </span>
-                <p>
-                Precio (x{items.addedItems} unidades): ${items.price*items.addedItems}
-                </p>
-                <button itemId={items.id} item={items} onClick={removeItem}>-</button>
-                <span>{items.addedItems}</span>
-                <button itemId={items.id} onClick={addItem}>+</button>
-            </div>
-        )
-    }
+    const {cart,clearItems}=useCart();
     return(
         <>
         {cart.length>=1

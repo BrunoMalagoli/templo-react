@@ -8,19 +8,20 @@ const CartWidget =()=>{
     //Quise hacer un preview a modo de carrito desplegable para poder continuar a Cart.js con un boton pero me tira error
     //const [showCartPreview,setShowCartPreview]=useState(false)
     //const showCartItems=({items})=>{
+        //console.log(items//)
         //return(
-            //<div className="cartItemsWrapper">
+           // <div className="cartItemsWrapper">
                 //<img src={items.photo} alt="Botella de bebida alcoholica"/>
                 //<h3>
                     //{items.name}
                 //</h3>
                 //<span>
-               // Cantidad:{items.addedItems}
+                //Cantidad:{items.addedItems}
                 //</span>
                 //<p>
                 //Precio (x{items.addedItems} unidades): ${items.price*items.addedItems}
                 //</p>
-           // </div>
+            //</div>
         //)
     //}
     return(
@@ -32,7 +33,7 @@ const CartWidget =()=>{
     {/* 
     showCartPreview
     ?<div className="cartPreviewContainer">
-        {cart.map((items)=><showCartItems items={items} key={items.id}/>)}
+        {cart.map(items=><showCartItems items={items} key={items.id}/>)}
     </div>
     :null
     */}
