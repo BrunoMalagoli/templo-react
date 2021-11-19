@@ -1,7 +1,8 @@
 import React from "react";
 import { useCart } from "../../../contexts/CartContext";
 const CartItems=({items})=>{
-    const {addItem,removeItem}=useCart();
+    const { plusItem, minusItem } = useCart();
+    console.log('items', items)
     return(
         <div className="cartItemsWrapper">
             <img src={items.photo} alt="Botella de bebida alcoholica"/>
@@ -11,12 +12,16 @@ const CartItems=({items})=>{
             <span>
             Cantidad:{items.addedItems}
             </span>
+            <br/>
+            <span>
+            Hay {items.stock} {items.name} en stock!🚩
+            </span>
             <p>
             Precio (x{items.addedItems} unidades): ${items.price*items.addedItems}
             </p>
-            <button itemId={items.id} onClick={removeItem}>-</button>
+            <button onClick={()=>minusItem(items)}>-</button>
             <span>{items.addedItems}</span>
-            <button itemId={items.id} onClick={addItem}>+</button>
+            <button onClick={()=>plusItem(items)}>+</button>
         </div>
     )
 }
