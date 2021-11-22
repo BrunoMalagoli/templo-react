@@ -9,12 +9,14 @@ const ItemDetail = ({ items }) => {
   const [quantity, setQuantity] = useState();
   const [showCounter, setShowCounter] = useState(true);
   const { addItem, setCartCounter, cartCounter } = useCart();
+
   const onAdd = (quantityToAdd) => {
     addItem(items, quantityToAdd);
     setQuantity(quantityToAdd);
     setShowCounter(!showCounter);
     setCartCounter(cartCounter + quantityToAdd);
   };
+
   let showAlert = (quantity) => {
     if (quantity >= 1) {
       Swal.fire({
@@ -29,11 +31,12 @@ const ItemDetail = ({ items }) => {
       });
     } else {
       Swal.fire({
-        text: "Agrega productos a tu carrito!",
+        text: "Agrega itemsos a tu carrito!",
         icon: "error",
       });
     }
   };
+
   return (
     <>
       <div id="itemDetailContainer">
@@ -41,7 +44,7 @@ const ItemDetail = ({ items }) => {
           <div className="itemDetailCard">
             <img
               src={items.photo}
-              alt="Imagen del producto"
+              alt="Botella de bebida alcoholica"
               id="itemDetailImg"
             />
             <h2 className="itemDetailName">{items.name}</h2>

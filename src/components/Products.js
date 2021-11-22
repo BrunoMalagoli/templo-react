@@ -60,7 +60,7 @@ const Products=[
         "stock":"12",
         "description":"Realizado por bodegas Aleanna, provincia de Mendoza, es de cuerpo compacto, con ciertos tonos de fruta roja algo madura, taninos más macizos, firmes y algo secantes. No es profundo, sólo persiste su textura. La expresión es toda de fruta, madura algo de pasa, con músculo y buena frescura, y con toque herbal al final.",
         "category":"vinos"
-        },
+    },
     {
         "id": "7",    
         "photo": cordero ,
@@ -78,7 +78,7 @@ const Products=[
         "stock":"48",
         "description":"El espumante Baron B de Chandon conjugan la elegancia del Chardonnay y la intensidad del Pinot Noir en un producto delicado y armonioso. ... Aromas expresivos a damasco y frutos cítricos se combinan con notas de pan tostado y frutos secos, dando complejidad a este espumante con final de boca sensual y de gran persistencia.",
         "category":"espumantes"
-        }
+    }
 
 ]
 export default Products;

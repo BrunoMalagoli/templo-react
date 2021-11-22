@@ -32,7 +32,7 @@ const Item = ({items}) =>{
     <>
     <div className='itemContainer'>
         <div className='itemCard'>
-        <img className='itemImg' src={items.photo} alt="Bottle of alcohol" />
+        <img className='itemImg' src={items.photo} alt="Bottle of alcohol"  />
         <h3 className='itemName'>{items.name}</h3>
         <p className='itemPrice'>${items.price}</p>
         <ItemCount stock={items.stock} initial='0' onCart= {(items)=>onAdd(items)} />
