@@ -1,27 +1,29 @@
 import React from "react";
 import { useCart } from "../../../contexts/CartContext";
+import "../CartItems/CartItems.scss"
 const CartItems=({items})=>{
-    const { plusItem, minusItem } = useCart();
+    const { plusItem, minusItem, totalPrice } = useCart();
     console.log('items', items)
     return(
-        <div className="cartItemsWrapper">
-            <img src={items.photo} alt="Botella de bebida alcoholica"/>
-            <h3>
+        <div className="cartItemsContainer">
+            <img className="cartItemsImg" src={items.photo} alt="Botella de bebida alcoholica"/>
+            <h3 className="cartItemsTitle">
                 {items.name}
             </h3>
-            <span>
+            <span className="cartItemsQuantity">
             Cantidad:{items.addedItems}
             </span>
             <br/>
-            <span>
+            <p className="cartItemsPrice">
+            Precio (x{items.addedItems} u): ${items.price*items.addedItems}
+            </p>
+            <button className="cartItemsButtons" onClick={()=>minusItem(items)}>-</button>
+            <span className="cartItemsCounter">{items.addedItems}</span>
+            <button className="cartItemsButtons" onClick={()=>plusItem(items)}>+</button>
+            <span className="cartItemsStock">
             Hay {items.stock} {items.name} en stock!🚩
             </span>
-            <p>
-            Precio (x{items.addedItems} unidades): ${items.price*items.addedItems}
-            </p>
-            <button onClick={()=>minusItem(items)}>-</button>
-            <span>{items.addedItems}</span>
-            <button onClick={()=>plusItem(items)}>+</button>
+            <span>{totalPrice}</span>
         </div>
     )
 }

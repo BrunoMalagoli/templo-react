@@ -13,12 +13,12 @@ const Cart=()=>{
                     <CartItems items={items}/>
                 </div>
             )
-            :<div>
-            <h3>
+            :<div className="cartItemsEmptyWrapper">
+            <h3 className="cartItemsEmptyTitle">
                 Agrega items a tu carrito!
             </h3>
             { <Link to={`/`}>
-             <button>
+             <button className="cartItemsEmptyButton">
                 Volver a la tienda
              </button>
             </Link> }
@@ -26,7 +26,7 @@ const Cart=()=>{
             }
         {
         cart.length>=1
-        ?<button onClick={clearItems}>Vaciar el carrito</button>
+        ?<button className="clearButton" onClick={clearItems}>Vaciar el carrito</button>
         :null
         }
         </>

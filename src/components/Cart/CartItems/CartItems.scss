@@ -1,3 +1,56 @@
-#counterAdd {
-  display: none;
+.cartItemsContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2%;
+  height: 8rem;
+  width: 60%;
+  box-shadow: 4px 4px 10px 0px rgba(252, 163, 17, 0.42);
+  -webkit-box-shadow: 4px 4px 10px 0px rgb(228, 228, 228);
+  -moz-box-shadow: 4px 4px 10px 0px rgb(228, 228, 228);
+  border-right: 3px solid rgb(252, 163, 17);
+  .cartItemsImg {
+    height: 7rem;
+    width: 7rem;
+  }
+  .cartItemsTitle {
+    width: 17%;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .cartItemsQuantity {
+    text-align: center;
+  }
+  .cartItemsStock {
+    font-size: 0.9rem;
+    text-align: center;
+    position: relative;
+    left: 19%;
+    bottom: 10%;
+    color: rgb(145, 143, 143);
+  }
+  .cartItemsPrice {
+    font-size: 0.9rem;
+    width: 20%;
+  }
+  .cartItemsCounter {
+    font-size: 0.9rem;
+    background-color: rgb(252, 163, 17);
+    border-radius: 1000px;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+  .cartItemsButtons {
+    background-color: rgb(252, 163, 17);
+    color: white;
+    font-size: 1rem;
+    border: 1px solid black;
+  }
+  .cartItemsButtons:hover {
+    background-color: rgb(230, 143, 3);
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s ease-in;
+  }
 }

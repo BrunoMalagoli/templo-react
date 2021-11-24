@@ -1,4 +1,31 @@
 .cartItemsWrapper {
   position: relative;
-  top: 10rem;
+  top: 9rem;
+}
+.clearButton {
+  position: absolute;
+  right: 5rem;
+}
+.cartItemsEmptyWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 8rem;
+  .cartItemsEmptyTitle {
+    text-align: center;
+  }
+  .cartItemsEmptyButton {
+    position: relative;
+    background-color: rgb(252, 163, 17);
+    color: white;
+    font-size: 1rem;
+    border: 1px solid black;
+  }
+  .cartItemsEmptyButton:hover {
+    background-color: rgb(230, 143, 3);
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s ease-in;
+  }
 }

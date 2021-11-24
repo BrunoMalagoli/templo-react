@@ -6,6 +6,7 @@ export function useCart() {
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [cartCounter, setCartCounter] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0)
   //Funcion para agregar items al carro si no estan repetidos, si estan repetidos agrega mas cantidad a su contador
   const addItem = (item, quantity) => {
     const newItem = { ...item, addedItems: quantity }; //Trae todo el objeto item y le agrega una propiedad addedItems que es el contador por si esta repetido
@@ -29,22 +30,31 @@ export function CartProvider({ children }) {
     updateCart.forEach((product) => {
       if (product.id === item.id) {
         if (product.addedItems<product.stock) {
-            product.addedItems += 1;   
+            product.addedItems += 1;
+            if (cartCounter>=0) {
+              setCartCounter(cartCounter+1);
+              }  
           }
       }
     });
     setCart(updateCart);
+    setTotalPrice(totalPrice + item.price*item.addedItems);
+    console.log(totalPrice)
   };
   const minusItem = (item) => {
     const updateCart = [...cart];
     updateCart.forEach((product) => {
       if (product.id === item.id) {
           if (product.addedItems>0) {
-            product.addedItems -= 1;   
+            product.addedItems -= 1;
+            if (cartCounter>=0) {
+              setCartCounter(cartCounter-1);
+              }   
           }
       }
     });
     setCart(updateCart);
+    setTotalPrice(totalPrice - item.price*item.addedItems);
   };
   const clearItems = () => {
     setCart([]);

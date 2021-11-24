@@ -11,11 +11,10 @@ import { useParams } from "react-router";
     const { categoryId } = useParams();
     useEffect(()=>{
         const db = getFirestore();
-        const q = query(collection(db,"items"),where("category", "==", "categoryId"));
         getDocs(collection(db, "items")).then((snapshot)=>{
             setProductos(snapshot.docs.map((doc)=>doc.data()));
         })
-    },[]);
+    },[categoryId]);
      return(
         <>
         {productos?
