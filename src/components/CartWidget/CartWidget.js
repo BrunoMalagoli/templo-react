@@ -4,7 +4,7 @@ import '../CartWidget/CartWidgetSass.scss'
 import logo from '../../images/CartWidget.png'
 import { useCart } from "../../contexts/CartContext";
 const CartWidget =()=>{
-    const {cartCounter,}=useCart();
+    const {cartCounter}=useCart();
     return(
     <>
     <div className="cartWidgetContainer">

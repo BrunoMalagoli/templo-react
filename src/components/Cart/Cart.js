@@ -4,7 +4,7 @@ import { useCart } from "../../contexts/CartContext";
 import "../Cart/Cart.scss"
 import CartItems from "./CartItems/CartItems";
 const Cart=()=>{
-    const {cart,clearItems}=useCart();
+    const { cart,clearItems, totalPrice } = useCart();
     return(
         <>
         {cart.length>=1
@@ -26,7 +26,18 @@ const Cart=()=>{
             }
         {
         cart.length>=1
-        ?<button className="clearButton" onClick={clearItems}>Vaciar el carrito</button>
+        ?   <div className="cartFormWrapper">
+            <span id="cartFormTitle">Finaliza tu compra</span>
+        <label htmlFor="cartFormName">Nombre completo</label>
+            <input id="cartFormName" type="text" />
+            <label htmlFor="cartFormMail">Correo electrónico</label>
+            <input id="cartFormMail" type="email" />
+            <label htmlFor="cartFormTel">Número telefónico</label>
+            <input id="cartFormTel" type="tel" /> 
+        <button className="clearButton" onClick={clearItems}>Vaciar el carrito</button>
+        <input id="cartFormSubmit" type="submit" value="Realizar el pedido!"  />
+            <span className="cartFormTotalPrice">Precio total: {`${totalPrice}`}</span>
+            </div>
         :null
         }
         </>

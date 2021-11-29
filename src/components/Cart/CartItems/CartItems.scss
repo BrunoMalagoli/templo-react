@@ -25,10 +25,11 @@
   .cartItemsStock {
     font-size: 0.9rem;
     text-align: center;
-    position: relative;
+    position: absolute;
     left: 19%;
     bottom: 10%;
     color: rgb(145, 143, 143);
+    width: 25%;
   }
   .cartItemsPrice {
     font-size: 0.9rem;
@@ -40,6 +41,7 @@
     border-radius: 1000px;
     padding-left: 1%;
     padding-right: 1%;
+    color: white;
   }
   .cartItemsButtons {
     background-color: rgb(252, 163, 17);
