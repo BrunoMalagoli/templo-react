@@ -6,10 +6,10 @@ export function useCart() {
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [cartCounter, setCartCounter] = useState(0);
-  const [totalPrice, setTotalPrice] = useState([]);
+  const [ order , setOrder ] = useState();
   //Funcion para agregar items al carro si no estan repetidos, si estan repetidos agrega mas cantidad a su contador
   const addItem = (item, quantity) => {
-    const newItem = { ...item, addedItems: quantity, totalItemPrice: quantity*item.price }; //Trae todo el objeto item y le agrega una propiedad addedItems que es el contador por si esta repetido
+    const newItem = { ...item, addedItems: quantity }; //Trae todo el objeto item y le agrega una propiedad addedItems que es el contador por si esta repetido
     const isInCart = cart.some((newProd) => newProd.id === item.id); //Funcion para saber si el item ya esta en el Cart
     if (!isInCart) {
       setCart([...cart, newItem]);
@@ -33,7 +33,6 @@ export function CartProvider({ children }) {
             product.addedItems += 1;
             if (cartCounter>=0) {
               setCartCounter(cartCounter+1);
-              calculateTotalPrice();
               }  
           }
       }
@@ -48,7 +47,6 @@ export function CartProvider({ children }) {
             product.addedItems -= 1;
             if (cartCounter>=0) {
               setCartCounter(cartCounter-1);
-              decreaseTotalPrice();
               }   
           }
       }
@@ -58,16 +56,7 @@ export function CartProvider({ children }) {
   const clearItems = () => {
     setCart([]);
     setCartCounter(0);
-    setTotalPrice(0);
   };
-  const calculateTotalPrice = () =>{
-    cart.map((item)=>setTotalPrice([...totalPrice+item.totalItemPrice]))
-    console.log(totalPrice)
-  }
-  const decreaseTotalPrice = () =>{
-    cart.map((item)=>setTotalPrice([...totalPrice-item.totalItemPrice]))
-  }
-  console.log(totalPrice)
   return (
     <>
       <CartContext.Provider
