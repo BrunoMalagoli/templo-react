@@ -6,7 +6,6 @@ export function useCart() {
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [cartCounter, setCartCounter] = useState(0);
-  const [ order , setOrder ] = useState();
   //Funcion para agregar items al carro si no estan repetidos, si estan repetidos agrega mas cantidad a su contador
   const addItem = (item, quantity) => {
     const newItem = { ...item, addedItems: quantity }; //Trae todo el objeto item y le agrega una propiedad addedItems que es el contador por si esta repetido
