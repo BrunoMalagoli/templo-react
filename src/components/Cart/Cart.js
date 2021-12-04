@@ -13,22 +13,27 @@ const Cart=()=>{
     const totalPrice = () => cart.reduce((acc, item) => (acc += item.price * item.addedItems), 0)
     let cartPrice = totalPrice();
     const handleChange = (e) =>{
-        setOrder({buyer:{...order,[e.target.name]:e.target.value}, items: cart, total:cartPrice})
+        setOrder({...order,[e.target.name]:e.target.value})
         console.log(order)
     }
     const handleSubmit = (e) =>{
         e.preventDefalut();
         const db = getFirestore();
         const ordersCollection = collection(db,"orders");
-        addDoc(ordersCollection, order)
-        .then(({ id }) =>
-        setOrderId(id),
+        const orden = {
+            buyer : order,
+            items : cart,
+            total : cartPrice,
+        };
+        addDoc(ordersCollection, orden)
+        .then(({ id }) =>{
+        setOrderId(id);
         Swal.fire({
             title: `Compra exitosa! Tu ID de compra es: ${orderId} !`,
             showConfirmButton: true,
             background: "rgb(255, 221, 84)",
             icon: "success",
-          }))
+          })})
         
         .catch(
             Swal.fire({
@@ -58,7 +63,7 @@ const Cart=()=>{
             }
         {
         cart.length>=1
-        ?   <form className="cartFormWrapper" onSubmit={(e)=>handleSubmit(e)}>
+        ?   <form className="cartFormWrapper" onSubmit={handleSubmit}>
             <span id="cartFormTitle">Finaliza tu compra</span>
         <label htmlFor="cartFormName">Nombre completo</label>
             <input id="cartFormName" onChange={(e)=>handleChange(e)} name="name" type="text" />
@@ -67,7 +72,7 @@ const Cart=()=>{
             <label htmlFor="cartFormTel">Número telefónico</label>
             <input id="cartFormTel" onChange={(e)=>handleChange(e)} name="phone" type="tel" /> 
         <button className="clearButton" onClick={clearItems}>Vaciar el carrito</button>
-        <input id="cartFormSubmit" type="submit" value="Realizar el pedido!" onSubmit={(e)=>handleSubmit(e)}  />
+        <button id="cartFormSubmit" type="submit">Realizar la compra!</button>
             <span className="cartFormTotalPrice">Precio total: {cartPrice}</span>
             </form>
         :null
