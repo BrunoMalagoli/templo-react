@@ -20,6 +20,7 @@ const Item = ({items}) =>{
               position: "bottom-end",
               background: "rgb(255, 221, 84)",
               icon: "success",
+              iconColor:"#ffffff"
             });
           } else {
             console.log(cart, "cart")

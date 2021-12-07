@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext";
 import "../Cart/Cart.scss"
 import CartItems from "./CartItems/CartItems";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, updateDoc, doc } from "firebase/firestore";
 import { getFirestore } from "../../firebase";
 import Swal from 'sweetalert2'
+import { useHistory } from "react-router";
 const Cart=()=>{
-    const { cart,clearItems } = useCart();
+    const { cart,clearItems, setCart, setCartCounter } = useCart();
     const [order, setOrder] = useState([]);
-    const [orderId, setOrderId] = useState();
+    const history = useHistory();
     const totalPrice = () => cart.reduce((acc, item) => (acc += item.price * item.addedItems), 0)
     let cartPrice = totalPrice();
     const handleChange = (e) =>{
@@ -17,7 +18,7 @@ const Cart=()=>{
         console.log(order)
     }
     const handleSubmit = (e) =>{
-        e.preventDefalut();
+        e.preventDefault();
         const db = getFirestore();
         const ordersCollection = collection(db,"orders");
         const orden = {
@@ -26,20 +27,37 @@ const Cart=()=>{
             total : cartPrice,
         };
         addDoc(ordersCollection, orden)
+        .then(()=>{
+            cart.forEach(item => {
+                const db = getFirestore();
+                const docRef = doc(db, "items", item.id);
+                updateDoc(docRef, {stock: item.stock - item.addedItems})
+            });
+        })
         .then(({ id }) =>{
-        setOrderId(id);
-        Swal.fire({
-            title: `Compra exitosa! Tu ID de compra es: ${orderId} !`,
-            showConfirmButton: true,
-            background: "rgb(255, 221, 84)",
-            icon: "success",
-          })})
-        
-        .catch(
+            Swal.fire({
+                title: `Compra exitosa! Tu ID de compra es: ${id} !`,
+                showConfirmButton: true,
+                confirmButtonText: "Entendido!",
+                confirmButtonColor: "rgb(255, 221, 84)",
+                iconColor: "rgb(255, 221, 84)",
+                background: "#fffff",
+                icon: "success",
+                allowOutsideClick: false,
+                }).then((result)=>{
+                    if (result.isConfirmed) {
+                        setCart([]);
+                        setCartCounter(0);
+                        history.push("/");
+                    }
+                })
+            })
+        .catch(()=>{
             Swal.fire({
                 text: "Algo salió mal, por favor vuelve a intentarlo.",
                 icon: "error",
               })
+            }
         );
     }
     return(
