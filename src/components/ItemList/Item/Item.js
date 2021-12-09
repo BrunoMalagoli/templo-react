@@ -8,7 +8,6 @@ const Item = ({items}) =>{
   const { addItem,cartCounter, setCartCounter, cart }=useCart();
     const onAdd=(quantity)=>{
         if (quantity >= 1) {
-          console.log("cart",cart)
           addItem(items, quantity);
           setCartCounter(cartCounter+quantity);
             Swal.fire({

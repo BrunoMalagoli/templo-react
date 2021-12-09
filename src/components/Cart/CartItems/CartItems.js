@@ -3,7 +3,6 @@ import { useCart } from "../../../contexts/CartContext";
 import "../CartItems/CartItems.scss"
 const CartItems=({items})=>{
     const { plusItem, minusItem, totalPrice } = useCart();
-    console.log('items', items)
     return(
         <div className="cartItemsContainer">
             <img className="cartItemsImg" src={items.photo} alt="Botella de bebida alcoholica"/>

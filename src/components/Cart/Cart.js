@@ -29,12 +29,10 @@ const Cart = () => {
     addDoc(ordersCollection, orden)
       .then(({ id }) => {
         cart.forEach((item) => {
-          console.log("item", item);
           const db = getFirestore();
           const docRef = doc(db, "items", item.id);
           updateDoc(docRef, { stock: item.stock - item.addedItems });
         });
-        console.log(id);
         Swal.fire({
           title: `Compra exitosa! Tu ID de compra es: ${id} !`, 
           showConfirmButton: true,
