@@ -1,6 +1,46 @@
 #itemDetailContainer {
   position: relative;
   top: 8rem;
+  display: flex;
+  .itemDetailCard {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    #itemDetailImg {
+      position: relative;
+      left: 31.5%;
+    }
+    .itemDetailName {
+      width: 100%;
+      text-align: center;
+    }
+    .itemDetailPrice {
+      width: 100%;
+      text-align: center;
+    }
+    .itemDetailDescription {
+      width: 50%;
+      text-align: left;
+      position: relative;
+      left: 25%;
+      color: white;
+      background-color: rgb(252, 163, 17);
+      border-radius: 20px;
+      padding: 2%;
+    }
+    .itemDetailCounterWrapper {
+      width: 100%;
+      #counterAdd {
+        position: relative;
+        left: 35.7%;
+      }
+      .toCartButton {
+        position: relative;
+        left: 34%;
+        margin-bottom: 2%;
+      }
+    }
+  }
   .toCartButton {
     background-color: rgb(252, 163, 17);
     color: white;

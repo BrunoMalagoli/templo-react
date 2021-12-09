@@ -48,7 +48,7 @@ const ItemDetail = ({ items }) => {
               id="itemDetailImg"
             />
             <h2 className="itemDetailName">{items.name}</h2>
-            <h4 className="itemDetailPrice">{items.price}</h4>
+            <h4 className="itemDetailPrice">${items.price}</h4>
             <p className="itemDetailDescription">{items.description}</p>
             <div className="itemDetailCounterWrapper">
               {showCounter ? (

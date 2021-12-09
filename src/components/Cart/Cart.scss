@@ -80,7 +80,7 @@
     position: relative;
     transition: 0.6s ease-in;
   }
-  #cartFormSubmit {
+  .cartFormSubmit {
     position: relative;
     top: 1rem;
     margin-bottom: 2%;
@@ -93,7 +93,7 @@
     height: 2.5rem;
     transition: 0.3s ease-out;
   }
-  #cartFormSubmit:hover {
+  .cartFormSubmit:hover {
     background-color: rgb(230, 143, 3);
     cursor: pointer;
     position: relative;

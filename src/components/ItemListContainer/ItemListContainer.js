@@ -14,11 +14,11 @@ import { useParams } from "react-router";
         const q = query(collection(db,"items"),where("category", "==", categoryId || "/"));
         if (categoryId) {
          getDocs(q).then((snapshot)=>{
-            setProductos(snapshot.docs.map((doc)=>doc.data()));
+            setProductos(snapshot.docs.map((doc)=>({id: doc.id, ...doc.data()})))
         })    
         }else{
             getDocs(collection(db, "items")).then((snapshot)=>{
-                setProductos(snapshot.docs.map((doc)=>doc.data()))
+                setProductos(snapshot.docs.map((doc)=>({id: doc.id, ...doc.data()})))
             })
         }
     },[categoryId]);
