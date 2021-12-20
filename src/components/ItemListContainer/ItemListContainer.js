@@ -5,6 +5,7 @@ import { getDocs, collection, where, query } from "firebase/firestore";
 import { getFirestore } from "../../firebase";
 import Loader from "../Loader/Loader";
 import { useParams } from "react-router";
+import Footer from "../Footer/Footer";
 
  const ItemListContainer=({items})=>{
     const [productos,setProductos]= useState(null);
@@ -28,7 +29,12 @@ import { useParams } from "react-router";
         <div className='itemListContainer'>
         <ItemList productos={productos} key={productos.id}/>
         </div>
-        :<Loader/>
+        :<Loader className="loader"/>
+        }
+        {
+        productos?
+        <Footer />
+        :null
         }
         </>
      )

@@ -6,9 +6,14 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    #itemDetailImg {
-      position: relative;
-      left: 31.5%;
+    .itemDetailImgContainer {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      #itemDetailImg {
+        width: auto;
+      }
     }
     .itemDetailName {
       width: 100%;
@@ -32,7 +37,7 @@
       width: 100%;
       #counterAdd {
         position: relative;
-        left: 35.7%;
+        left: 36.4%;
       }
       .toCartButton {
         position: relative;

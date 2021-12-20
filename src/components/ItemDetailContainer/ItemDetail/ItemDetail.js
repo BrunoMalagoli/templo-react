@@ -42,11 +42,13 @@ const ItemDetail = ({ items }) => {
       <div id="itemDetailContainer">
         {items ? (
           <div className="itemDetailCard">
-            <img
-              src={items.photo}
-              alt="Botella de bebida alcoholica"
-              id="itemDetailImg"
-            />
+            <div className="itemDetailImgContainer">
+              <img
+                src={items.photo}
+                alt="Botella de bebida alcoholica"
+                id="itemDetailImg"
+              />
+            </div>
             <h2 className="itemDetailName">{items.name}</h2>
             <h4 className="itemDetailPrice">${items.price}</h4>
             <p className="itemDetailDescription">{items.description}</p>
