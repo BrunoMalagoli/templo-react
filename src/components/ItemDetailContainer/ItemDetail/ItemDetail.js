@@ -63,8 +63,6 @@ const ItemDetail = ({ items }) => {
                 />
               ) : (
                 (showAlert(quantity),
-                console.log(showCounter),
-                console.log(quantity),
                 (
                   <Link to={`/cart`}>
                     <>

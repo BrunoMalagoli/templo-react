@@ -12,7 +12,6 @@ export function CartProvider({ children }) {
     const isInCart = cart.some((newProd) => newProd.id === item.id); //Funcion para saber si el item ya esta en el Cart
     if (!isInCart) {
       setCart([...cart, newItem]);
-      console.log(newItem);
     } else {
         const updateCart = [...cart];
         updateCart.forEach((product) => {

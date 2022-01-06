@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useCart } from "../../../contexts/CartContext";
 const Item = ({items}) =>{
-  const { addItem,cartCounter, setCartCounter, cart }=useCart();
+  const { addItem,cartCounter, setCartCounter }=useCart();
     const onAdd=(quantity)=>{
         if (quantity >= 1) {
           addItem(items, quantity);
@@ -22,7 +22,6 @@ const Item = ({items}) =>{
               iconColor:"#ffffff"
             });
           } else {
-            console.log(cart, "cart")
             Swal.fire({
               text: "Agrega productos a tu carrito!",
               icon: "error",
