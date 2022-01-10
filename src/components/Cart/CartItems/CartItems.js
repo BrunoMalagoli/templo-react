@@ -1,9 +1,11 @@
 import React from "react";
 import { useCart } from "../../../contexts/CartContext";
 import "../CartItems/CartItems.scss"
+import { Tooltip } from "@mui/material";
 const CartItems=({items})=>{
     const { plusItem, minusItem, totalPrice } = useCart();
     return(
+        <Tooltip arrow placement="bottom" title={`Hay ${items.stock} ${items.name} en stock!🚩`}>
         <div className="cartItemsContainer">
             <img className="cartItemsImg" src={items.photo} alt="Botella de bebida alcoholica"/>
             <h3 className="cartItemsTitle">
@@ -19,11 +21,9 @@ const CartItems=({items})=>{
             <button className="cartItemsButtons" onClick={()=>minusItem(items)}>-</button>
             <span className="cartItemsCounter">{items.addedItems}</span>
             <button className="cartItemsButtons" onClick={()=>plusItem(items)}>+</button>
-            <span className="cartItemsStock">
-            Hay {items.stock} {items.name} en stock!🚩
-            </span>
             <span>{totalPrice}</span>
         </div>
+        </Tooltip>
     )
 }
 export default CartItems;

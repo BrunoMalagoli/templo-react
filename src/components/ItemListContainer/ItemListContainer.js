@@ -6,6 +6,7 @@ import { getFirestore } from "../../firebase";
 import Loader from "../Loader/Loader";
 import { useParams } from "react-router";
 import Footer from "../Footer/Footer";
+import { yellow } from "@mui/material/colors";
 
  const ItemListContainer=({items})=>{
     const [productos,setProductos]= useState(null);
@@ -29,7 +30,15 @@ import Footer from "../Footer/Footer";
         <div className='itemListContainer'>
         <ItemList productos={productos} key={productos.id}/>
         </div>
-        :<Loader className="loader"/>
+        :<Loader 
+        size={20}
+        sx={{
+            position:"absolute",
+            color: yellow[500],
+            top:"50%",
+            left:"50%",
+        }}
+        />
         }
         {
         productos?

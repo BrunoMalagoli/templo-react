@@ -1,9 +1,9 @@
 import React from "react";
-import { CircularProgress } from "@material-ui/core";
+import LinearProgress from '@mui/material/LinearProgress';
 const Loader=()=>{
     return(
         <>
-        <CircularProgress color="inherit" />
+        <LinearProgress color="inherit" />
         </>
     )
 }

@@ -32,8 +32,8 @@
     align-items: center;
     width: 50%;
     text-align: center;
+    left: -3.6rem;
     padding: 0%;
-    left: -2rem;
     .navBarLi {
       list-style: none;
       width: 50%;
@@ -43,6 +43,7 @@
       text-align: center;
       position: relative;
       left: -20rem;
+      padding: 0%;
       .navBarLiAnchor {
         text-decoration: none;
         color: rgb(20, 33, 61);

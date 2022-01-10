@@ -107,7 +107,7 @@ const Cart = () => {
             type="tel"
             {...register("formTel", { required: "true" , pattern:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/})}
           />
-          {errors.formName && <Alert className="formError" severity="error">Se requiere un número telefónico valido</Alert>}
+          {errors.formTel && <Alert className="formError" severity="error">Se requiere un número telefónico valido</Alert>}
           <button className="clearButton" onClick={clearItems}>
             Vaciar el carrito
           </button>
