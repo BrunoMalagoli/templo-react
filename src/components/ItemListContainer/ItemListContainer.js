@@ -5,7 +5,6 @@ import { getDocs, collection, where, query } from "firebase/firestore";
 import { getFirestore } from "../../firebase";
 import Loader from "../Loader/Loader";
 import { useParams } from "react-router";
-import Footer from "../Footer/Footer";
 import { yellow } from "@mui/material/colors";
 
  const ItemListContainer=({items})=>{
@@ -39,11 +38,6 @@ import { yellow } from "@mui/material/colors";
             left:"50%",
         }}
         />
-        }
-        {
-        productos?
-        <Footer />
-        :null
         }
         </>
      )
